@@ -9,28 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.revature</groupId>
-	<artifactId>P1-Rest</artifactId>
+	<artifactId>P1-SOAPConsumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>P1-Rest</name>
-	<description>P1</description>
+	<name>P1-SOAPConsumer</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-	<dependencies>
+<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -41,24 +32,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-  			<groupId>org.apache.httpcomponents</groupId>
-  			<artifactId>httpclient</artifactId>
- 			 <scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-remoting -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-remoting</artifactId>
-			<version>2.0.8</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxws -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
 			<version>3.5.2</version>
 		</dependency>
-		
 	</dependencies>
 
 	<build>

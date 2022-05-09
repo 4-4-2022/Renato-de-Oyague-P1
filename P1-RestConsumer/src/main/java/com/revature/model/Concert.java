@@ -10,17 +10,19 @@ public class Concert {
 	private String artist;
 	private String seats;
 	private int price;
+	private int stock;
 	
 	public Concert() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Concert(String artist, String seats, int price) {
+	public Concert(String artist, String seats, int price, int stock) {
 		super();
 		this.artist = artist;
 		this.seats = seats;
 		this.price = price;
+		this.stock = stock;
 	}
 
 	public String getArtist() {
@@ -47,9 +49,17 @@ public class Concert {
 		this.price = price;
 	}
 
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(artist, price, seats);
+		return Objects.hash(artist, price, seats, stock);
 	}
 
 	@Override
@@ -61,12 +71,13 @@ public class Concert {
 		if (getClass() != obj.getClass())
 			return false;
 		Concert other = (Concert) obj;
-		return Objects.equals(artist, other.artist) && price == other.price && Objects.equals(seats, other.seats);
+		return Objects.equals(artist, other.artist) && price == other.price && Objects.equals(seats, other.seats)
+				&& stock == other.stock;
 	}
 
 	@Override
 	public String toString() {
-		return "Concert [artist=" + artist + ", seats=" + seats + ", price=" + price + "]";
+		return "Concert artist = " + artist + ", seats = " + seats + ", price = $" + price + ", stock = " + stock;
 	}
-
+	
 }

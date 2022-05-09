@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Concert {
 	
 	@Id
-	@Column(name="Concert_id")
+	@Column(name = "concert_id")
 	private int id;
 	@Column(name = "concert_artist")
 	private String artist;
@@ -99,5 +99,4 @@ public class Concert {
 	public String toString() {
 		return "Concert id = " + id + ", artist = " + artist + ", seats = " + seats + ", price = $" + price + ", stock = " + stock;
 	}
-	
 }

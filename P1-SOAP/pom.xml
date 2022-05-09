@@ -8,10 +8,10 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.P1</groupId>
-	<artifactId>P1</artifactId>
+	<groupId>com.revature</groupId>
+	<artifactId>P1-SOAP</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>P1</name>
+	<name>P1-SOAP</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>

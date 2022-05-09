@@ -50,9 +50,9 @@ class P1RestApplicationTests {
 		MockitoAnnotations.openMocks(this);
 		this.venueService = new VenueService();
 		this.mockVenue = new  ArrayList<Venue>();
-		this.mockVenue.add(new Venue("May", 16 , "Foo-Fighters", "http://localhost:8081/concert?artist=Foo-Fighters"));
-		this.mockVenue.add(new Venue("June", 12, "Paul-McCartney", "http://localhost:8081/concert?artist=Paul-McCartney"));
-		this.mockVenue.add(new Venue("August", 20, "Chris-Stapleton", "http://localhost:8081/concert?artist=Chris-Stapleton"));
+		this.mockVenue.add(new Venue(1, "May", 16 , "Foo-Fighters", "http://localhost:8081/concert?artist=Foo-Fighters"));
+		this.mockVenue.add(new Venue(2, "June", 12, "Paul-McCartney", "http://localhost:8081/concert?artist=Paul-McCartney"));
+		this.mockVenue.add(new Venue(3, "August", 20, "Chris-Stapleton", "http://localhost:8081/concert?artist=Chris-Stapleton"));
 	}
 
 	@Test
@@ -74,11 +74,27 @@ class P1RestApplicationTests {
 	}
 	
 	@Test
+	public void testFindAllConcert() throws Exception {
+		assertThat(this.restTemplate.getForEntity("http://localhost:" + port + "/venue/concert/all",
+				List.class));
+	}
+	
+	@Test
 	public void testFindByMonthVenue() throws Exception {
 		
 		String[] month = {"May", "June", "July", "August", "September"};
 		for(int i = 0; i < month.length; i++) {
 			assertThat(this.restTemplate.getForEntity("http://localhost:" + port + "/venue/" + month[i],
+				List.class));
+			}
+	}
+	
+	@Test
+	public void testFindByArtistConcert() throws Exception {
+		
+		String[] artist = {"Foo-Fighters", "The-Luminners", "Robert-Plant", "Paul-McCartney", "The-Black-Keys", "Chris-Stapleton", "Blondie", "The-Killers"};
+		for(int i = 0; i < artist.length; i++) {
+			assertThat(this.restTemplate.getForEntity("http://localhost:" + port + "/venue/concert/" + artist[i],
 				List.class));
 			}
 	}

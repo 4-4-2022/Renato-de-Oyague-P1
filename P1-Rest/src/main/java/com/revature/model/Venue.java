@@ -11,11 +11,13 @@ import javax.persistence.Table;
 @Table(name = "venue")
 public class Venue {
 	
+	@Id
+	@Column(name = "venue_id")
+	private int id;
 	@Column(name = "venue_month")
 	private String month;
 	@Column(name = "venue_day")
 	private int day;
-	@Id
 	@Column(name = "venue_artist")
 	private String artist;
 	@Column(name = "venue_url")
@@ -26,12 +28,21 @@ public class Venue {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Venue(String month, int day, String artist, String url) {
+	public Venue(int id, String month, int day, String artist, String url) {
 		super();
+		this.id = id;
 		this.month = month;
 		this.day = day;
 		this.artist = artist;
 		this.url = url;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getMonth() {
@@ -68,7 +79,7 @@ public class Venue {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(artist, day, month, url);
+		return Objects.hash(artist, day, id, month, url);
 	}
 
 	@Override
@@ -80,13 +91,13 @@ public class Venue {
 		if (getClass() != obj.getClass())
 			return false;
 		Venue other = (Venue) obj;
-		return Objects.equals(artist, other.artist) && day == other.day && Objects.equals(month, other.month)
-				&& Objects.equals(url, other.url);
+		return Objects.equals(artist, other.artist) && day == other.day && id == other.id
+				&& Objects.equals(month, other.month) && Objects.equals(url, other.url);
 	}
 
 	@Override
 	public String toString() {
-		return "Venue month = " + month + ", day = " + day + ", artist = " + artist + ", URL = " + url;
+		return "Venue id=" + id + ", month=" + month + ", day=" + day + ", artist=" + artist + ", url=" + url;
 	}
 
 }
