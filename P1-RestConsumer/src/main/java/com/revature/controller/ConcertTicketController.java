@@ -27,4 +27,11 @@ public class ConcertTicketController {
 		ResponseEntity<Concert[]> concert = restTemplate.getForEntity("http://localhost:8080/venue/concert/all", Concert[].class);
 		return concert.getBody();
 	}
+	
+	@GetMapping("/concert/price")
+	public Concert[] findConcertPrice(@PathParam(value="price1") int price1, @PathParam(value="price2") int price2) {
+		ResponseEntity<Concert[]> concert = restTemplate.getForEntity("http://localhost:8080/venue/concert/price?price1="+ price1 +"&price2=" + price2, Concert[].class);
+		return concert.getBody();
+	}
+	
 }

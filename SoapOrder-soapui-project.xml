@@ -188,15 +188,15 @@
             <id>1</id>\r
             <!--Optional:-->\r
             <status>Renato</status>\r
-            <user_id>1</user_id>\r
+            <user_id>2</user_id>\r
          </arg0>\r
          <arg1>\r
             <!--Zero or more repetitions:-->\r
             <entry>\r
                <!--Optional:-->\r
-               <key>1</key>\r
+               <key>5</key>\r
                <!--Optional:-->\r
-               <value>1</value>\r
+               <value>5</value>\r
             </entry>\r
          </arg1>\r
       </ser:save>\r

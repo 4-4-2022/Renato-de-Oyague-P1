@@ -32,4 +32,8 @@ public class ConcertService {
 	public void save(Concert ticket) {
 		this.concertRepository.save(ticket);
 	}
+	
+	public void delete(Concert ticket) {
+		this.concertRepository.delete(ticket);
+	}
 }

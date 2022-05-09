@@ -12,5 +12,6 @@ public interface VenueRepository extends JpaRepository<Venue, String>{
 	public List<Venue> findAll();
 	public List<Venue> findByMonth(String month);
 	public <S extends Venue> S save(Venue concert);
-	public void delete(Venue concert);
+	public void delete(Venue id);
+	
 }

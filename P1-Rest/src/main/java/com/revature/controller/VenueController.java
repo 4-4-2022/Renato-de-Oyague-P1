@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +53,11 @@ public class VenueController {
 		this.venueService.save(concert);
 	}
 	
+	@DeleteMapping(value = "/delete", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void delete(@RequestBody Venue id) {
+		this.venueService.delete(id);
+	}
+	
 	@GetMapping(value = "/concert/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Concert>> finAll(){
 		ResponseEntity<List<Concert>> httpResponse = new ResponseEntity<>(this.concertService.findAll(), HttpStatus.OK);
@@ -61,6 +67,11 @@ public class VenueController {
 	@PostMapping(value = "/concert/new", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void save(@RequestBody Concert ticket) {
 		this.concertService.save(ticket);
+	}
+	
+	@DeleteMapping(value = "/concert/delete", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void delete(@RequestBody Concert ticket) {
+		this.concertService.delete(ticket);
 	}
 	
 	@GetMapping("/concert/{artist}")

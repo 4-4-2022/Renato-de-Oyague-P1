@@ -29,4 +29,8 @@ public class VenueService {
 	public void save(Venue concert) {
 		this.venueRepository.save(concert);
 	}
+	
+	public void delete(Venue id) {
+		this.venueRepository.delete(id);
+	}
 }

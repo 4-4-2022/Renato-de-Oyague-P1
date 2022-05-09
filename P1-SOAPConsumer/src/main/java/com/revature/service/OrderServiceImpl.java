@@ -47,17 +47,16 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	@WebMethod
 	public List<Ticket> findAllTicket() {
-		// TODO Auto-generated method stub
 		return this.ticketRepository.findAll();
 	}
 	
 	public void save(Order order, Map<Integer, Integer> tickets) {
 		Order savedOrder = this.orderRepository.save(order);
-		for (int id : tickets.keySet()) {
-			for(int cid : tickets.keySet()) {
-			OrderTicketKey orderTicketKey = new OrderTicketKey(savedOrder, id, cid);
-			Ticket item = new Ticket(orderTicketKey, tickets.get(id));
-			this.ticketRepository.save(item);
+		for (int order_id : tickets.keySet()) {
+			for(int concert_id : tickets.keySet()) {
+			OrderTicketKey orderTicketKey = new OrderTicketKey(savedOrder, order_id, concert_id);
+			Ticket ticket = new Ticket(orderTicketKey, tickets.get(order_id));
+			this.ticketRepository.save(ticket);
 			}
 		}
 		this.sendQuantityUpdates(tickets);
@@ -68,9 +67,9 @@ public class OrderServiceImpl implements OrderService {
 		StringBuilder entries = new StringBuilder();
 		for(int id : tickets.keySet()) {
 			entries.append("<entry> <key>" 
-					+ id + "</key><value>" 
+					+ id + "</key><quantity>" 
 					+ tickets.get(id) 
-					+ "</value></entry>");
+					+ "</quantity></entry>");
 		}
 		final String SOAP_MESSAGE = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.revature.com/\">\r\n"
 				+ "   <soapenv:Header/>\r\n"
